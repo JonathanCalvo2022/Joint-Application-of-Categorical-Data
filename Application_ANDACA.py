@@ -777,10 +777,7 @@ def analisis_similaridad():
     except FileNotFoundError:
         messagebox.showinfo('Informacion', 'El archivo esta malogrado')
         return None
-
     matriz = np.zeros((x, x))
-
-
     for i in range(x):
         for j in range(i+1, x):
             A = df.columns[i]
@@ -834,7 +831,6 @@ def analisis_similaridad():
     text_resultados.tag_config("resaltado", foreground="red")
 
 def ordenar_nodos():
-    
     global df
     global contenedor_indice_similaridad, contenedor_lista_matriz, contenedor_valor, contendor_diccionario, xx, contenedor_sumaI, contenedor_f, contenedor_rkk, contenedor_skk, contenedor_v, contenedor_nodos_m, contenedor_valores, con_al, contenedor_vector
     global text_resultados
@@ -867,9 +863,7 @@ def ordenar_nodos():
     except FileNotFoundError:
         messagebox.showinfo('Informacion', 'El archivo esta malogrado')
         return None
-
     matriz = np.zeros((x, x))
-
     for i in range(x):
         for j in range(i+1, x):
             A = df.columns[i]
@@ -979,11 +973,7 @@ def ordenar_nodos():
       for j in range(len(contenedor_vector)):
         v = round(contenedor_vector[j],3)
       contenedor_v.append(v)
-
-      
       contenedor_nodos_m.append((card, s_beta_k, v))
-
-
     data_nodos = pd.DataFrame(contenedor_nodos_m, columns=['Card()', 'S(Ω,k)', 'V(Ω,k)'])
     
     resultado += "###########################################################################\n"
@@ -1096,7 +1086,6 @@ for i, nombre_cajon in enumerate(nombres_cajones):
             elif j == 1 and i == 0:
                 menu.add_command(label="Mostrar", command=mostrar_resultados)  
             elif j == 2 and i == 0:
-                
                 menu.add_command(label="Eliminar", command=limpiar_data) 
             elif j == 0 and i == 1:
                 menu.add_command(label="Tabla de contingencia", command= tabla_de_contigencia)
@@ -1117,4 +1106,3 @@ cuadro_seleccionadas.pack(pady=10)
 exportar_button = tk.Button(root, text="Convertir a categóricas", command=convertir_a_categoricas)
 exportar_button.pack(pady=10)
 root.mainloop()
-
